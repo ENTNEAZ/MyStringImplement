@@ -33,12 +33,19 @@ void* MyString::memmove(void* destination, const void* source, size_t num)
 
 char* MyString::strcpy(char* destination, const char* source)
 {
+	MyString::strncpy(destination, source, 0);
+	return destination;
+}
+
+char* MyString::strncpy(char* destination, const char* source, size_t num)
+{
 	char* destinationTemp = destination;
-	while (*source != '\0') {
+	while (*source != '\0' && num != 0) {
 		*destinationTemp = *source;
 		source++;
 		destinationTemp++;
+		num--;
 	}
-	*destinationTemp = *source;//–¥»Î'\0'
+	*destinationTemp = '\0';//–¥»Î'\0'
 	return destination;
 }
