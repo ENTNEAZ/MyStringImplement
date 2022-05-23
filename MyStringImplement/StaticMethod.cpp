@@ -40,7 +40,7 @@ char* MyString::strcpy(char* destination, const char* source)
 char* MyString::strncpy(char* destination, const char* source, size_t num)
 {
 	char* destinationTemp = destination;
-	while (*source != '\0' && num != 0) {
+	while (*source != '\0' && num != 1) {//留一个空间给'\0' 同时支持填0全部复制
 		*destinationTemp = *source;
 		source++;
 		destinationTemp++;
@@ -48,4 +48,51 @@ char* MyString::strncpy(char* destination, const char* source, size_t num)
 	}
 	*destinationTemp = '\0';//写入'\0'
 	return destination;
+}
+
+char* MyString::strncat(char* destination, const char* source, size_t num)
+{
+	char* endOfDestination = destination;
+	while (*endOfDestination != '\0') {
+		endOfDestination++;
+	}
+	MyString::strncpy(endOfDestination,source,num);
+	return destination;
+}
+
+char* MyString::strcat(char* destination, const char* source)
+{
+	MyString::strncpy(destination, source, 0);
+	return destination;
+}
+
+int MyString::memcmp(const void* ptr1, const void* ptr2, size_t num)
+{
+	char* cPtr1 = (char*)ptr1;
+	char* cPtr2 = (char*)ptr2;
+	while (num-- != 0) {
+		if (*cPtr1 != *cPtr2) {
+			break;
+		}
+		else {
+			cPtr1++;
+			cPtr2++;
+		}
+	}
+	return *cPtr1 - *cPtr2;
+}
+
+int MyString::strcmp(const char* str1, const char* str2)
+{
+	return MyString::strncmp(str1, str2, 0);
+}
+
+int MyString::strncmp(const char* str1, const char* str2, size_t num)
+{
+	while (*str1 == *str2 && *str1 != '\0' && *str2 != '\0' && num != 1) {
+		str1++;
+		str2++;
+		num--;
+	}
+	return *str1 - *str2;
 }
