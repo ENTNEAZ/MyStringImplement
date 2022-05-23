@@ -24,3 +24,21 @@ void* MyString::memcpy(void* destination, const void* source, size_t num)
 	}
 	return destination;
 }
+
+void* MyString::memmove(void* destination, const void* source, size_t num)
+{
+	MyString::memcpy(destination, source, num);
+	return destination;
+}
+
+char* MyString::strcpy(char* destination, const char* source)
+{
+	char* destinationTemp = destination;
+	while (*source != '\0') {
+		*destinationTemp = *source;
+		source++;
+		destinationTemp++;
+	}
+	*destinationTemp = *source;//–¥»Î'\0'
+	return destination;
+}
