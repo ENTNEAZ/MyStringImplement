@@ -27,6 +27,12 @@
     <ClCompile Include="CharNode.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="NormalMethod.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Operators.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">

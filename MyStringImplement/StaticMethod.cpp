@@ -198,10 +198,6 @@ char* MyString::strrchr(char* str, int character) {
 	return const_cast<char*>(MyString::strchr(const_cast<const char*>(str), character));
 }
 
-char* strrchr(char* str, int character) {
-	return const_cast<char*>(MyString::strrchr(const_cast<const char*>(str), character));
-}
-
 size_t MyString::strspn(const char* str1, const char* str2)
 {
 	size_t number = 0;

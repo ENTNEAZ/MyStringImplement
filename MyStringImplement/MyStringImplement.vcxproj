@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="CharNode.cpp" />
     <ClCompile Include="Constructors.cpp" />
+    <ClCompile Include="NormalMethod.cpp" />
+    <ClCompile Include="Operators.cpp" />
     <ClCompile Include="StaticMethod.cpp" />
     <ClCompile Include="MyStringImplement.cpp" />
   </ItemGroup>

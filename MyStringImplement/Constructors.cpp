@@ -3,5 +3,15 @@
 
 MyString::MyString()
 {
-	this->head = new CharNode(nullptr, nullptr, '\0');
+	this->head = nullptr;
 }
+
+MyString::MyString(const char* s)
+{
+	size_t lengthOfS = MyString::strlen(s);
+	for (size_t i = 0; i < lengthOfS; i++)
+	{
+		this->addCharNode(new CharNode(s[i]));
+	}
+}
+

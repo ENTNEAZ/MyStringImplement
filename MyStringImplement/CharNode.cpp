@@ -7,12 +7,27 @@ CharNode::CharNode()
 	this->content = '\0';
 }
 
-CharNode::CharNode(char* before, char* after, char content)
+CharNode::CharNode(char content)
+{
+	this->before = nullptr;
+	this->next = nullptr;
+	this->content = content;
+}
+
+CharNode::CharNode(CharNode* before, CharNode* after, char content)
 {
 	this->before = before;
 	this->next = after;
 	this->content = content;
 }
+
+CharNode::CharNode(CharNode* onlyContent)
+{
+	this->before = nullptr;
+	this->next = nullptr;
+	this->content = onlyContent->getContent();
+}
+
 
 void CharNode::setContent(char content)
 {
@@ -24,22 +39,22 @@ char CharNode::getContent()
 	return this->content;
 }
 
-void CharNode::setBefore(char* before)
+void CharNode::setBefore(CharNode* before)
 {
 	this->before = before;
 }
 
-void CharNode::setNext(char* after)
+void CharNode::setNext(CharNode* after)
 {
 	this->next = after;
 }
 
-char* CharNode::getBefore()
+CharNode* CharNode::getBefore()
 {
 	return this->before;
 }
 
-char* CharNode::getNext()
+CharNode* CharNode::getNext()
 {
 	return this->next;
 }

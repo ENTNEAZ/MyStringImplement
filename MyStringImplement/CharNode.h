@@ -4,16 +4,18 @@
 class CharNode {
 public:
 	CharNode();
-	CharNode(char* before, char* after, char content);
+	CharNode(char content);
+	CharNode(CharNode* before, CharNode* after, char content);
+	CharNode(CharNode* onlyContent);
 	void setContent(char content);
 	char getContent();
-	void setBefore(char* before);
-	void setNext(char* after);
-	char* getBefore();
-	char* getNext();
+	void setBefore(CharNode* before);
+	void setNext(CharNode* after);
+	CharNode* getBefore();
+	CharNode* getNext();
 private:
-	char* before;
-	char* next;
+	CharNode* before;
+	CharNode* next;
 	char content;
 };
 

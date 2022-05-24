@@ -2,7 +2,7 @@
 #ifndef MyString
 
 #include "CharNode.h"
-
+#include <iostream>
 
 class MyString {
 public:
@@ -39,7 +39,24 @@ public:
 
 	
 	//Construct string object
-	MyString();
+	MyString();//default
+	//MyString(MyString&);//copy constructor
+	//substring constructor
+	MyString(const char* s);//from c string
+	//from buffer
+	//fill constructor
+
+	//Method of string object
+	CharNode* getCharNodeHead();
+	void addCharNode(CharNode*);
+	void deleteAllCharNode();
+	void copyFrom(MyString toCopy);
+
+
+
+	//operators of string object
+	void operator=(const char* s);
+	friend std::ostream& operator<<(std::ostream&, MyString);
 
 
 private:
