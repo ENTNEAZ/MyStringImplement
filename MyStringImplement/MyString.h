@@ -15,6 +15,15 @@ public:
 	static size_t strxfrm(char* destination, const char* source, size_t num);
 	static const void* memchr(const void* ptr, int value, size_t num);
 	static void* memchr(void* ptr, int value, size_t num);
+	static const char* strchr(const char* str, int character);
+	static char* strchr(char* str, int character);
+	static size_t strcspn(const char* str1, const char* str2);
+	static const char* strpbrk(const char* str1, const char* str2);
+	static char* strpbrk(char* str1, const char* str2);
+	static const char* strrchr(const char* str, int character);
+	static char* strrchr(char* str, int character);
+
+	static size_t strlen(const char* str);
 };
 
 #endif // !MyString

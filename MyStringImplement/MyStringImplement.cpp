@@ -43,6 +43,30 @@ int main()
     MyString::strcpy(str1, "Example string");
     char* pch = (char*)MyString::memchr(str1, 'p', strlen(str1));
     cout << "found in " << pch - str1 + 1 << endl;
+
+
+    //strchr
+    MyString::strcpy(str1, "Example string");
+    pch = (char*)MyString::strchr(str1, 'p');
+    cout << "found in " << pch - str1 + 1 << endl;
+
+
+    //strcspn
+    MyString::strcpy(str1, "fcba73");
+    MyString::strcpy(str2, "1234567890");
+    cout << MyString::strcspn(str1, str2) << endl;
+
+
+    //strpbrk
+    MyString::strcpy(str1, "fcaba73123");
+    cout << MyString::strpbrk(str1, str2) << endl;
+
+    //strrchr
+    MyString::strcpy(str1, "f3a3sdf");
+    cout << MyString::strrchr(str1, '3') << endl;
+
+
+
     return 0;
 }
 

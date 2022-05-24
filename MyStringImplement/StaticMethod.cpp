@@ -133,3 +133,74 @@ const void* MyString::memchr(const void* ptr, int value, size_t num)
 void* MyString::memchr(void* ptr, int value, size_t num) {
 	return const_cast<void *>(MyString::memchr(const_cast<const void*>(ptr), value, num));
 }
+
+const char* MyString::strchr(const char* str, int character)
+{
+	char* ptrChar = (char*)str;
+	while (*((char*)ptrChar) != '\0') {
+		if (*((char*)ptrChar) == character) {
+			return ptrChar;
+		}
+		ptrChar++;
+	}
+	//如果什么也没找到
+	return nullptr;
+}
+
+char* MyString::strchr(char* str, int character) {
+	return const_cast<char*>(MyString::strchr(const_cast<const char*>(str), character));
+}
+
+size_t MyString::strcspn(const char* str1, const char* str2)
+{
+	size_t scanner = 0;
+
+	for (scanner = 0; str1[scanner] != '\0' ; scanner++)
+	{
+		for (size_t pointer = 0;  str2[pointer] != '\0'; pointer++)
+		{
+			if (str2[pointer] == str1[scanner]) {
+				return scanner + 1;
+			}
+		}
+	}
+	return scanner;
+}
+
+const char* MyString::strpbrk(const char* str1, const char* str2)
+{
+	int index = MyString::strcspn(str1, str2);
+	if (index == MyString::strlen(str1)) {
+		return nullptr;
+	}
+	else {
+		return str1 + index -1;
+	}
+}
+
+char* MyString::strpbrk(char* str1, const char* str2) {
+	return const_cast<char*>(MyString::strpbrk(const_cast<const char*>(str1), str2));
+}
+
+const char* MyString::strrchr(const char* str, int character)
+{
+	size_t length = MyString::strlen(str);
+	for (int i = length - 1; i >= 0; i--)
+	{
+		if (str[i] == character) {
+			return str + i;
+		}
+	}
+	return nullptr;
+}
+
+char* strrchr(char* str, int character) {
+	return const_cast<char*>(MyString::strrchr(const_cast<const char*>(str), character));
+}
+
+size_t MyString::strlen(const char* str)
+{
+	size_t i = 0;
+	for (i = 0; str[i] != '\0'; i++);
+	return i;
+}
