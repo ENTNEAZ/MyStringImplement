@@ -22,6 +22,9 @@ public:
 	static char* strpbrk(char* str1, const char* str2);
 	static const char* strrchr(const char* str, int character);
 	static char* strrchr(char* str, int character);
+	static size_t strspn(const char* str1, const char* str2);
+	static const char* strstr(const char* str1, const char* str2);
+	static char* strstr(char* str1, const char* str2);
 
 	static size_t strlen(const char* str);
 };

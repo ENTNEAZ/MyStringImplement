@@ -66,7 +66,15 @@ int main()
     cout << MyString::strrchr(str1, '3') << endl;
 
 
+    //strspn
+    MyString::strcpy(str1, "129th");
+    MyString::strcpy(str2, "1234567890");
+    size_t i = strspn(str1, str2);
+    cout << "The initial number has " << i << " digits." << endl;
 
+
+    //strstr
+    cout << MyString::strstr("This is a simple string", "simple") << endl;
     return 0;
 }
 

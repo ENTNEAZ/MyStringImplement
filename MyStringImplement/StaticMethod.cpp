@@ -194,8 +194,64 @@ const char* MyString::strrchr(const char* str, int character)
 	return nullptr;
 }
 
+char* MyString::strrchr(char* str, int character) {
+	return const_cast<char*>(MyString::strchr(const_cast<const char*>(str), character));
+}
+
 char* strrchr(char* str, int character) {
 	return const_cast<char*>(MyString::strrchr(const_cast<const char*>(str), character));
+}
+
+size_t MyString::strspn(const char* str1, const char* str2)
+{
+	size_t number = 0;
+
+	for (size_t scanner = 0; str1[scanner] != '\0'; scanner++)
+	{
+		for (size_t pointer = 0; str2[pointer] != '\0'; pointer++)
+		{
+			if (str2[pointer] == str1[scanner]) {
+				number++;
+				break;
+			}
+		}
+	}
+	return number;
+}
+
+const char* MyString::strstr(const char* str1, const char* str2)
+{
+	size_t lengthStr1 = MyString::strlen(str1);
+	size_t lengthStr2 = MyString::strlen(str2);
+	for (size_t i = 0; i < lengthStr1; i++)
+	{
+		if (*str2 == str1[i]) {
+			//有第一个字符匹配了 尝试匹配余下的部分
+			bool isSuccess = true;
+			for (size_t j = 0; j < lengthStr2; j++)
+			{
+				if (str2[j] == str1[i + j]) {
+					continue;
+				}
+				else {
+					isSuccess = false;
+					break;
+				}
+				if (str1[i + j] == '\0') {
+					//str2没读完就到头了 那说明后面肯定没了
+					return nullptr;
+				}
+			}
+			if (isSuccess) {
+				return str1 + i;
+			}
+		}
+	}
+	return nullptr;
+}
+
+char* MyString::strstr(char* str1, const char* str2) {
+	return const_cast<char*>(MyString::strstr(const_cast<const char*>(str1), str2));
 }
 
 size_t MyString::strlen(const char* str)
