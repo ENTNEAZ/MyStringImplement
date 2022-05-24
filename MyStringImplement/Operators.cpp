@@ -11,7 +11,7 @@ void MyString::operator=(const char* s)
 		this->addCharNode(new CharNode(s[i]));
 	}
 }
-char MyString::operator[](int index)
+char MyString::operator[](const int index) const
 {
 	CharNode* item = this->getCharNodeHead();
 	for (int i = 0; i < index; i++)

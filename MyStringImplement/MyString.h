@@ -39,24 +39,35 @@ public:
 
 	
 	//Construct string object
-	MyString();//default
-	explicit MyString(MyString& toCopy);//copy constructor
+	MyString();
+	//default
+
+	explicit MyString(const MyString& toCopy);
+	//copy constructor
+
+	MyString(const MyString& str, size_t pos, size_t len);
 	//substring constructor
-	MyString(const char* s);//from c string
+
+	MyString(const char* s);
+	//from c string
+
+	MyString(const char* s,size_t num);
 	//from buffer
+
+	MyString(char s, size_t num);
 	//fill constructor
 
 	//Method of string object
-	CharNode* getCharNodeHead();
+	CharNode* getCharNodeHead() const;
 	void addCharNode(CharNode*);
 	void deleteAllCharNode();
-	void copyFrom(MyString& toCopy);
+	void copyFrom(const MyString& toCopy);
 
 
 
 	//operators of string object
 	void operator=(const char* s);
-	char operator[](int index);
+	char operator[](const int index) const;
 	friend std::ostream& operator<<(std::ostream&, MyString&);
 
 

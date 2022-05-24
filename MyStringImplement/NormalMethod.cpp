@@ -1,7 +1,7 @@
 #include "MyString.h"
 
 
-CharNode* MyString::getCharNodeHead()
+CharNode* MyString::getCharNodeHead() const
 {
 	return this->head;
 }
@@ -46,7 +46,7 @@ void MyString::deleteAllCharNode()
 	}
 }
 
-void MyString::copyFrom(MyString& toCopy)
+void MyString::copyFrom(const MyString& toCopy)
 {
 	this->deleteAllCharNode();
 	CharNode* toCopyItem = toCopy.getCharNodeHead();
