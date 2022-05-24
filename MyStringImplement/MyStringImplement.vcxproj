@@ -127,10 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CharNode.cpp" />
+    <ClCompile Include="Constructors.cpp" />
     <ClCompile Include="StaticMethod.cpp" />
     <ClCompile Include="MyStringImplement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharNode.h" />
     <ClInclude Include="MyString.h" />
   </ItemGroup>
   <ItemGroup>

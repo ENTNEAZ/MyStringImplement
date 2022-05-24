@@ -91,6 +91,8 @@ int main()
     MyString::strcpy(str1, "almost every programmer should know memset!");
     MyString::memset(str1, '-', 6);
     cout << str1 << endl;
+
+
     return 0;
 }
 

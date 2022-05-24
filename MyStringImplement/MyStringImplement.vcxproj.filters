@@ -21,9 +21,18 @@
     <ClCompile Include="StaticMethod.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Constructors.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CharNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CharNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
