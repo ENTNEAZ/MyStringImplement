@@ -6,6 +6,12 @@ MyString::MyString()
 	this->head = nullptr;
 }
 
+MyString::MyString(MyString& toCopy)
+{
+	this->head = nullptr;
+	this->copyFrom(toCopy);
+}
+
 MyString::MyString(const char* s)
 {
 	size_t lengthOfS = MyString::strlen(s);

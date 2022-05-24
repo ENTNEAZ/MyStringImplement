@@ -46,7 +46,7 @@ void MyString::deleteAllCharNode()
 	}
 }
 
-void MyString::copyFrom(MyString toCopy)
+void MyString::copyFrom(MyString& toCopy)
 {
 	this->deleteAllCharNode();
 	CharNode* toCopyItem = toCopy.getCharNodeHead();

@@ -11,7 +11,19 @@ void MyString::operator=(const char* s)
 		this->addCharNode(new CharNode(s[i]));
 	}
 }
-std::ostream& operator<<(std::ostream& out, MyString str)
+char MyString::operator[](int index)
+{
+	CharNode* item = this->getCharNodeHead();
+	for (int i = 0; i < index; i++)
+	{
+		if (item == nullptr) {
+			return '\0';
+		}
+		item = item->getNext();
+	}
+	return item->getContent();
+}
+std::ostream& operator<<(std::ostream& out, MyString& str)
 {
 	CharNode* item = str.getCharNodeHead();
 	while (item != nullptr) {

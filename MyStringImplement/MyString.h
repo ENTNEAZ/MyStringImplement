@@ -40,7 +40,7 @@ public:
 	
 	//Construct string object
 	MyString();//default
-	//MyString(MyString&);//copy constructor
+	explicit MyString(MyString& toCopy);//copy constructor
 	//substring constructor
 	MyString(const char* s);//from c string
 	//from buffer
@@ -50,13 +50,14 @@ public:
 	CharNode* getCharNodeHead();
 	void addCharNode(CharNode*);
 	void deleteAllCharNode();
-	void copyFrom(MyString toCopy);
+	void copyFrom(MyString& toCopy);
 
 
 
 	//operators of string object
 	void operator=(const char* s);
-	friend std::ostream& operator<<(std::ostream&, MyString);
+	char operator[](int index);
+	friend std::ostream& operator<<(std::ostream&, MyString&);
 
 
 private:
