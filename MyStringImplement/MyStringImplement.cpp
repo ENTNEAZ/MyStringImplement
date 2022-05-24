@@ -38,6 +38,11 @@ int main()
     cout << str1 << '\t' << str2 << endl;
     cout << MyString::strcmp(str1, str2) << endl;
 
+
+    //memchr
+    MyString::strcpy(str1, "Example string");
+    char* pch = (char*)MyString::memchr(str1, 'p', strlen(str1));
+    cout << "found in " << pch - str1 + 1 << endl;
     return 0;
 }
 
