@@ -25,7 +25,8 @@ public:
 	static size_t strspn(const char* str1, const char* str2);
 	static const char* strstr(const char* str1, const char* str2);
 	static char* strstr(char* str1, const char* str2);
-
+	static char* strtok(char* str, const char* delimiters);
+	static void* memset(void* ptr, int value, size_t num);
 	static size_t strlen(const char* str);
 };
 

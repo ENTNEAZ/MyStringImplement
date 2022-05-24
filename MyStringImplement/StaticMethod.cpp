@@ -169,7 +169,7 @@ size_t MyString::strcspn(const char* str1, const char* str2)
 
 const char* MyString::strpbrk(const char* str1, const char* str2)
 {
-	int index = MyString::strcspn(str1, str2);
+	size_t index = MyString::strcspn(str1, str2);
 	if (index == MyString::strlen(str1)) {
 		return nullptr;
 	}
@@ -185,7 +185,7 @@ char* MyString::strpbrk(char* str1, const char* str2) {
 const char* MyString::strrchr(const char* str, int character)
 {
 	size_t length = MyString::strlen(str);
-	for (int i = length - 1; i >= 0; i--)
+	for (size_t i = length - 1; i >= 0; i--)
 	{
 		if (str[i] == character) {
 			return str + i;
@@ -252,6 +252,56 @@ const char* MyString::strstr(const char* str1, const char* str2)
 
 char* MyString::strstr(char* str1, const char* str2) {
 	return const_cast<char*>(MyString::strstr(const_cast<const char*>(str1), str2));
+}
+
+char* MyString::strtok(char* str, const char* delimiters)
+{
+	static size_t lengthOfStr = 0;
+	static char* savedStr = nullptr;
+	if (str != nullptr) {
+		size_t lengthOfDelimiters = MyString::strlen(delimiters);
+		lengthOfStr = MyString::strlen(str);
+		savedStr = str;
+
+		//将所有的delimiters都变成'\0'
+		for (size_t i = 0; i < lengthOfStr; i++)
+		{
+			for (size_t j = 0; j < lengthOfDelimiters; j++)
+			{
+				if (str[i] == delimiters[j]) {
+					str[i] = '\0';
+					break;
+				}
+			}
+		}
+	}
+	//将指针指向对应不是'\0'的地方
+	while (*savedStr == '\0' && lengthOfStr > 0) {
+		lengthOfStr--;
+		savedStr++;
+	}
+	if (lengthOfStr == 0) {
+		return nullptr;
+	}
+	else {
+		char* temp = savedStr;
+		//调整指向下一个'\0'
+		while (*savedStr != '\0' && lengthOfStr > 0) {
+			lengthOfStr--;
+			savedStr++;
+		}
+		return temp;
+	}
+}
+
+void* MyString::memset(void* ptr, int value, size_t num)
+{
+	char* ptrChar = (char*)ptr;
+	for (; num != 0; num--) {
+		*ptrChar = char(value);
+		ptrChar++;
+	}
+	return ptr;
 }
 
 size_t MyString::strlen(const char* str)

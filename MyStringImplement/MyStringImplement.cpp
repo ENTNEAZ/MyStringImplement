@@ -75,6 +75,22 @@ int main()
 
     //strstr
     cout << MyString::strstr("This is a simple string", "simple") << endl;
+
+
+    //strtok
+    MyString::strcpy(str1, "- This, a sample string.");
+    pch = MyString::strtok(str1, " ,.-");
+    while (pch != nullptr)
+    {
+        printf("%s\n", pch);
+        pch = MyString::strtok(NULL, " ,.-");
+    }
+
+
+    //memset
+    MyString::strcpy(str1, "almost every programmer should know memset!");
+    MyString::memset(str1, '-', 6);
+    cout << str1 << endl;
     return 0;
 }
 
