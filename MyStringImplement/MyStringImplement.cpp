@@ -93,10 +93,20 @@ int main()
     //MyString::memset(str1, '-', 6);
     //cout << str1 << endl;
 
-    MyString a = "asdfghjjkl";
-    a = "qwertyuiopsdfbas,gbjadfbkgkjfdgdfg";
+    MyString a = "abcdefg";
     cout << a << endl;
-    //cout << a[10000] << endl; //error
+    cout << a[4] << endl;
+
+    MyString b = "123123123";
+    cout << b << endl;
+
+    cout << a + b << endl;
+    
+    MyString c = a + b;
+    cout << c << endl;
+    c = c + c;
+    c += c;
+    cout << c << endl;
 
     return 0;
 }

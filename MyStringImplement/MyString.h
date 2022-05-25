@@ -10,7 +10,7 @@ public:
 	//Construct string object
 	MyString();
 	//default
-	explicit MyString(const MyString& toCopy);
+	MyString(const MyString& toCopy);
 	//copy constructor
 	MyString(const MyString& str, size_t pos, size_t len);
 	//substring constructor
@@ -42,10 +42,16 @@ public:
 
 	//operators of string object
 	void operator=(const char* s);
+	void operator=(const MyString s);
 	const char& operator[](size_t pos) const;
 	char& operator[] (size_t pos);
 	friend std::ostream& operator<<(std::ostream&, MyString&);
-
+	MyString& operator+ (const MyString& str);
+	MyString& operator+ (const char* s);
+	MyString& operator+ (char c);
+	MyString& operator+= (const MyString& str);
+	MyString& operator+= (const char* s);
+	MyString& operator+= (char c);
 
 private:
 	CharNode* getCharNodeHead() const;

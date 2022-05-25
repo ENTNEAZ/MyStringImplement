@@ -18,9 +18,6 @@
     <ClCompile Include="MyStringImplement.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="StaticMethod.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Constructors.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

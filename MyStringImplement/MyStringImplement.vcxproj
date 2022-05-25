@@ -132,7 +132,6 @@
     <ClCompile Include="NormalMethod.cpp" />
     <ClCompile Include="Operators.cpp" />
     <ClCompile Include="OriginalCString.cpp" />
-    <ClCompile Include="StaticMethod.cpp" />
     <ClCompile Include="MyStringImplement.cpp" />
   </ItemGroup>
   <ItemGroup>
