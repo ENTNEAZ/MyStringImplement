@@ -55,3 +55,8 @@ MyString::MyString(char s, size_t num)
 	}
 }
 
+MyString::~MyString()
+{
+	this->deleteAllCharNode();
+}
+

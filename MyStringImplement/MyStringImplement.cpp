@@ -96,7 +96,7 @@ int main()
     MyString a = "asdfghjjkl";
     a = "qwertyuiopsdfbas,gbjadfbkgkjfdgdfg";
     cout << a << endl;
-    cout << a[10000] << endl;
+    //cout << a[10000] << endl; //error
 
     return 0;
 }

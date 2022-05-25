@@ -8,7 +8,7 @@ public:
 	CharNode(CharNode* before, CharNode* after, char content);
 	CharNode(CharNode* onlyContent);
 	void setContent(char content);
-	char getContent();
+	char& getContent();
 	void setBefore(CharNode* before);
 	void setNext(CharNode* after);
 	CharNode* getBefore();

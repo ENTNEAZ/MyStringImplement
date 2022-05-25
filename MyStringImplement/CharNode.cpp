@@ -34,7 +34,7 @@ void CharNode::setContent(char content)
 	this->content = content;
 }
 
-char CharNode::getContent()
+char& CharNode::getContent()
 {
 	return this->content;
 }
