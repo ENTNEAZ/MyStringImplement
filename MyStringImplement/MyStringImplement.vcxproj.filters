@@ -33,6 +33,9 @@
     <ClCompile Include="Operators.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="OriginalCString.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
@@ -41,9 +44,15 @@
     <ClInclude Include="CharNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="OriginalCString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Achieved.md">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

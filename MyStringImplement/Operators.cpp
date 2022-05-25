@@ -1,11 +1,12 @@
 #include "MyString.h"
 #include "CharNode.h"
+#include "OriginalCString.h"
 #include <iostream>
 
 void MyString::operator=(const char* s)
 {
 	this->deleteAllCharNode();
-	size_t lengthOfS = MyString::strlen(s);
+	size_t lengthOfS = OString::strlen(s);
 	for (size_t i = 0; i < lengthOfS; i++)
 	{
 		this->addCharNode(new CharNode(s[i]));

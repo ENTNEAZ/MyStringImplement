@@ -131,15 +131,18 @@
     <ClCompile Include="Constructors.cpp" />
     <ClCompile Include="NormalMethod.cpp" />
     <ClCompile Include="Operators.cpp" />
+    <ClCompile Include="OriginalCString.cpp" />
     <ClCompile Include="StaticMethod.cpp" />
     <ClCompile Include="MyStringImplement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharNode.h" />
     <ClInclude Include="MyString.h" />
+    <ClInclude Include="OriginalCString.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="Achieved.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

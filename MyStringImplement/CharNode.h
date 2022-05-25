@@ -1,5 +1,5 @@
 #pragma once
-#ifndef CharNode
+
 
 class CharNode {
 public:
@@ -19,4 +19,4 @@ private:
 	char content;
 };
 
-#endif // !CharNode
+

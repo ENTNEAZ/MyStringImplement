@@ -1,6 +1,9 @@
 #include "MyString.h"
 #include "CharNode.h"
+#include "OriginalCString.h"
 
+
+//http://www.cplusplus.com/reference/string/string/string/
 MyString::MyString()
 {
 	this->head = nullptr;
@@ -27,7 +30,7 @@ MyString::MyString(const MyString& str, size_t pos, size_t len)
 MyString::MyString(const char* s)
 {
 	this->head = nullptr;
-	size_t lengthOfS = MyString::strlen(s);
+	size_t lengthOfS = OString::strlen(s);
 	for (size_t i = 0; i < lengthOfS; i++)
 	{
 		this->addCharNode(new CharNode(s[i]));
