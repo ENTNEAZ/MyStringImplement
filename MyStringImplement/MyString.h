@@ -55,13 +55,17 @@ public:
 	MyString& assign(const char* s);
 	MyString& assign(const char* s, size_t n);
 	MyString& assign(size_t n, char c);
-	//insert插入到pos的前面
 	MyString& insert(size_t pos, const MyString& str);
 	MyString& insert(size_t pos, const MyString& str, size_t subpos, size_t sublen);
 	MyString& insert(size_t pos, const char* s);
 	MyString& insert(size_t pos, const char* s, size_t n);
 	MyString& insert(size_t pos, size_t n, char c);
 	MyString& erase(size_t pos, size_t len);
+	MyString& replace(size_t pos, size_t len, const MyString& str);
+	MyString& replace(size_t pos, size_t len, const MyString& str,size_t subpos, size_t sublen);
+	MyString& replace(size_t pos, size_t len, const char* s);
+	MyString& replace(size_t pos, size_t len, const char* s, size_t n);
+	MyString& replace(size_t pos, size_t len, size_t n, char c);
 
 
 	//operators of string object

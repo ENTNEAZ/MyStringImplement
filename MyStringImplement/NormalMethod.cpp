@@ -371,6 +371,7 @@ MyString& MyString::assign(size_t n, char c)
 	return *this;
 }
 
+//insert插入到pos前面
 MyString& MyString::insert(size_t pos, const MyString& str)
 {
 	CharNode* head = MyString::myStringToCharList(str);
@@ -455,5 +456,40 @@ MyString& MyString::erase(size_t pos, size_t len)
 		delete end;
 	}
 	
+	return *this;
+}
+
+MyString& MyString::replace(size_t pos, size_t len, const MyString& str)
+{
+	this->erase(pos, len);
+	this->insert(pos, str);
+	return *this;
+}
+
+MyString& MyString::replace(size_t pos, size_t len, const MyString& str, size_t subpos, size_t sublen)
+{
+	this->erase(pos, len);
+	this->insert(pos, str, subpos, sublen);
+	return *this;
+}
+
+MyString& MyString::replace(size_t pos, size_t len, const char* s)
+{
+	this->erase(pos, len);
+	this->insert(pos, s);
+	return *this;
+}
+
+MyString& MyString::replace(size_t pos, size_t len, const char* s, size_t n)
+{
+	this->erase(pos, len);
+	this->insert(pos, s, n);
+	return *this;
+}
+
+MyString& MyString::replace(size_t pos, size_t len, size_t n, char c)
+{
+	this->erase(pos, len);
+	this->insert(pos, n, c);
 	return *this;
 }

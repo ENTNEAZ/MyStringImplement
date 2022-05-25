@@ -123,6 +123,22 @@ int main()
     d.erase(2, 3);
     cout << d << endl;
 
+    a = "this is a test string.";
+    b = "n example";
+    c = "sample phrase";
+    d = "useful.";
+
+    a.replace(9, 5, b);
+    cout << a << endl;
+    a.replace(19, 6, c, 7, 6);
+    cout << a << endl;
+    a.replace(8, 10, "just a");
+    cout << a << endl;
+    a.replace(8, 6, "a shorty", 7);
+    cout << a << endl;
+    a.replace(22, 1, 3, '!');
+    cout << a << endl;
+
 
     return 0;
 }
