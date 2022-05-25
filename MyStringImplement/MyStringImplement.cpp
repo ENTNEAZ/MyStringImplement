@@ -114,6 +114,16 @@ int main()
     c.insert(0, a + b);
     cout << a << '\t' << b << endl;
     cout << c << endl;
+
+    MyString d(c, 2, 4);
+    cout << d.insert(1,a,0,3) << endl;
+
+
+    d = "01234567";
+    d.erase(2, 3);
+    cout << d << endl;
+
+
     return 0;
 }
 

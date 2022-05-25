@@ -8,18 +8,24 @@ class MyString {
 public:
 	
 	//Construct string object
-	MyString();
 	//default
-	MyString(const MyString& toCopy);
+	MyString();
+
 	//copy constructor
-	MyString(const MyString& str, size_t pos, size_t len);
+	MyString(const MyString& toCopy);
+
 	//substring constructor
-	MyString(const char* s);
+	MyString(const MyString& str, size_t pos, size_t len);
+
 	//from c string
-	MyString(const char* s,size_t num);
+	MyString(const char* s);
+
 	//from buffer
-	MyString(char s, size_t num);
+	MyString(const char* s,size_t num);
+
 	//fill constructor
+	MyString(char s, size_t num);
+	
 	~MyString();
 
 
@@ -55,7 +61,7 @@ public:
 	MyString& insert(size_t pos, const char* s);
 	MyString& insert(size_t pos, const char* s, size_t n);
 	MyString& insert(size_t pos, size_t n, char c);
-
+	MyString& erase(size_t pos, size_t len);
 
 
 	//operators of string object

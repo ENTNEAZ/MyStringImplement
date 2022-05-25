@@ -377,3 +377,83 @@ MyString& MyString::insert(size_t pos, const MyString& str)
 	this->insertCharList(pos, head);
 	return *this;
 }
+
+MyString& MyString::insert(size_t pos, const MyString& str, size_t subpos, size_t sublen)
+{
+	MyString temp(str,subpos,sublen);
+	CharNode* head = MyString::myStringToCharList(temp);
+	this->insertCharList(pos, head);
+	return *this;
+}
+
+MyString& MyString::insert(size_t pos, const char* s)
+{
+	MyString temp(s);
+	CharNode* head = MyString::myStringToCharList(temp);
+	this->insertCharList(pos, head);
+	return *this;
+}
+
+MyString& MyString::insert(size_t pos, const char* s, size_t n)
+{
+	MyString temp(s, n);
+	CharNode* head = MyString::myStringToCharList(temp);
+	this->insertCharList(pos, head);
+	return *this;
+}
+
+MyString& MyString::insert(size_t pos, size_t n, char c)
+{
+	MyString temp(c, n);
+	CharNode* head = MyString::myStringToCharList(temp);
+	this->insertCharList(pos, head);
+	return *this;
+}
+
+MyString& MyString::erase(size_t pos, size_t len)
+{
+	if (pos >= this->length() || len == 0) {
+		return *this;
+	}
+
+	CharNode* item = this->head;
+	for (size_t i = 0; i < pos; i++)
+	{
+		item = item->getNext();
+	}
+
+	//item指向了要删除的内容的第一个字符
+	CharNode* end = item;
+	while (end->getNext() != nullptr && len > 1) {//len > 1由于item已经占位了1个 
+		end = end->getNext();
+		len--;
+	}
+	if (item == this->head) {
+		this->head = end->getNext();
+		if (end->getNext() != nullptr) {
+			end->getNext()->setBefore(nullptr);
+		}
+	}
+	else {
+		item->getBefore()->setNext(end->getNext());
+		if (end->getNext() != nullptr) {
+			end->getNext()->setBefore(item->getBefore());
+		}
+	}
+	//删除item和end之前的所有内容
+	if (item == end) {
+		//只有一个要删除
+		delete end;
+	}
+	else {
+		//两个以上才能用item = item->getNext();
+		do
+		{
+			item = item->getNext();
+			delete item->getBefore();
+		} while (item != end);
+		delete end;
+	}
+	
+	return *this;
+}

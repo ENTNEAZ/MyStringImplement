@@ -31,17 +31,6 @@ to_string  Convert numerical value to string
 
 Modifiers:
 
-append
-
-Append to string (public member function )
-
-push_back
-
-Append character to string (public member function )
-
-assign
-
-Assign content to string (public member function )
 
 insert
 
