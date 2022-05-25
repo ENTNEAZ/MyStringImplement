@@ -1,5 +1,25 @@
 #include "MyString.h"
 
+//http://www.cplusplus.com/reference/string/string/
+
+
+CharNode* MyString::myStringToCharList(const MyString& transfer)
+{
+	CharNode* item = transfer.getCharNodeHead();
+	if (item == nullptr) {
+		return nullptr;
+	}
+	CharNode* toAddHead = new CharNode(item->getContent());
+	item = item->getNext();
+	CharNode* toAddItem = toAddHead;
+	//copy list
+	while (item != nullptr) {
+		toAddItem->setNext(new CharNode(toAddItem, nullptr, item->getContent()));
+		toAddItem = toAddItem->getNext();
+		item = item->getNext();
+	}
+	return toAddHead;
+}
 
 CharNode* MyString::getCharNodeHead() const
 {
@@ -57,6 +77,63 @@ void MyString::copyFrom(const MyString& toCopy)
 	}
 	return;
 }
+
+void MyString::insertCharList(size_t insertBeforePos, CharNode* insertHead)
+{
+	if (insertHead == nullptr) {
+		return;
+	}
+
+	CharNode* insertEnd = insertHead;
+	while (insertEnd->getNext() != nullptr) {
+		insertEnd = insertEnd->getNext();
+	}
+
+	CharNode* end = this->head;
+	for (size_t i = 0; i < insertBeforePos; i++)
+	{
+		end = end->getNext();
+	}
+
+	CharNode* start = nullptr;
+
+	if (this->head == nullptr) {//这就是个空的字符串
+		this->head = insertHead;
+		return;
+	}
+
+	if (end == nullptr) {
+		start = this->head;
+		while (start->getNext() != nullptr) {
+			start = start->getNext();
+		}
+	}
+	else {
+		start = end->getBefore();
+	}
+	
+
+	//插入序列头和断开处头部连接
+	if (start == nullptr) {
+		this->head = insertHead;
+		insertHead->setBefore(nullptr);
+	}
+	else {
+		start->setNext(insertHead);
+		insertHead->setBefore(start);
+	}
+	
+	//插入序列尾和断开处尾部连接
+	if (end == nullptr) {
+		insertEnd->setNext(nullptr);
+	}
+	else {
+		end->setBefore(insertEnd);
+		insertEnd->setNext(end);
+	}
+}
+
+
 
 size_t MyString::size()
 {
@@ -197,7 +274,7 @@ const char& MyString::front() const
 
 MyString& MyString::append(const MyString& str)
 {
-	return *this + str;
+	return *this += str;
 }
 
 MyString& MyString::append(const MyString& str, size_t subpos, size_t sublen)
@@ -218,7 +295,7 @@ MyString& MyString::append(const MyString& str, size_t subpos, size_t sublen)
 
 MyString& MyString::append(const char* s)
 {
-	return *this + s;
+	return *this += s;
 }
 
 MyString& MyString::append(const char* s, size_t n)
@@ -236,5 +313,67 @@ MyString& MyString::append(size_t n, char c)
 	{
 		this->addCharNode(new CharNode(c));
 	}
+	return *this;
+}
+
+void MyString::push_back(char c)
+{
+	*this += c;
+}
+
+MyString& MyString::assign(const MyString& str)
+{
+	*this = str;
+	return *this;
+}
+
+MyString& MyString::assign(const MyString& str, size_t subpos, size_t sublen)
+{
+	this->deleteAllCharNode();
+	CharNode* item = str.getCharNodeHead();
+	for (size_t i = 0; i < subpos; i++)
+	{
+		item = item->getNext();
+	}
+
+	for (size_t i = 0; i < sublen; i++)
+	{
+		this->addCharNode(new CharNode(item->getContent()));
+		item = item->getNext();
+	}
+	return *this;
+}
+
+MyString& MyString::assign(const char* s)
+{
+	this->deleteAllCharNode();
+	*this += s;
+	return *this;
+}
+
+MyString& MyString::assign(const char* s, size_t n)
+{
+	this->deleteAllCharNode();
+	for (size_t i = 0; i < n; i++)
+	{
+		this->addCharNode(new CharNode(s[i]));
+	}
+	return *this;
+}
+
+MyString& MyString::assign(size_t n, char c)
+{
+	this->deleteAllCharNode();
+	for (size_t i = 0; i < n; i++)
+	{
+		this->addCharNode(new CharNode(c));
+	}
+	return *this;
+}
+
+MyString& MyString::insert(size_t pos, const MyString& str)
+{
+	CharNode* head = MyString::myStringToCharList(str);
+	this->insertCharList(pos, head);
 	return *this;
 }

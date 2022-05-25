@@ -93,11 +93,11 @@ int main()
     //MyString::memset(str1, '-', 6);
     //cout << str1 << endl;
 
-    MyString a = "abcdefg";
+    MyString a = "aaaaaaaaa";
     cout << a << endl;
     cout << a[4] << endl;
 
-    MyString b = "123123123";
+    MyString b = "bbbbbbbbb";
     cout << b << endl;
 
     cout << a + b << endl;
@@ -108,6 +108,12 @@ int main()
     c += c;
     cout << c << endl;
 
+    a = "aaa";
+    b = "bbb";
+    c = "";
+    c.insert(0, a + b);
+    cout << a << '\t' << b << endl;
+    cout << c << endl;
     return 0;
 }
 
