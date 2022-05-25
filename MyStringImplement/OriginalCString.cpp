@@ -185,10 +185,10 @@ char* OString::strpbrk(char* str1, const char* str2) {
 const char* OString::strrchr(const char* str, int character)
 {
 	size_t length = OString::strlen(str);
-	for (size_t i = length - 1; i >= 0; i--)
+	for (size_t i = length; i > 0; i--)
 	{
-		if (str[i] == character) {
-			return str + i;
+		if (str[i - 1] == character) {
+			return str + i - 1;
 		}
 	}
 	return nullptr;

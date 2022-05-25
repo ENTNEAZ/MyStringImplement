@@ -8,7 +8,7 @@ namespace OString {
 	const void* memchr(const void* ptr, int value, size_t num);
 	void* memchr(void* ptr, int value, size_t num);
 	void* memset(void* ptr, int value, size_t num);
-	//memory operator
+	//memory operate
 
 
 	char* strcpy(char* destination, const char* source);

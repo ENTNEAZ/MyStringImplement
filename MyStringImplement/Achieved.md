@@ -32,14 +32,6 @@ to_string  Convert numerical value to string
 Modifiers:
 
 
-insert
-
-Insert into string (public member function )
-
-erase
-
-Erase characters from string (public member function )
-
 replace
 
 Replace portion of string (public member function )
