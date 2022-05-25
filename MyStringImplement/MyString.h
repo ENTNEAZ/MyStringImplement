@@ -38,7 +38,11 @@ public:
 	const char& back() const;
 	char& front();
 	const char& front() const;
-
+	MyString& append(const MyString& str);
+	MyString& append(const MyString& str, size_t subpos, size_t sublen);
+	MyString& append(const char* s);
+	MyString& append(const char* s, size_t n);
+	MyString& append(size_t n, char c);
 
 	//operators of string object
 	void operator=(const char* s);
@@ -52,6 +56,7 @@ public:
 	MyString& operator+= (const MyString& str);
 	MyString& operator+= (const char* s);
 	MyString& operator+= (char c);
+
 
 private:
 	CharNode* getCharNodeHead() const;

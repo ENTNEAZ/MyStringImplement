@@ -194,3 +194,47 @@ const char& MyString::front() const
 		return this->head->getContent();
 	}
 }
+
+MyString& MyString::append(const MyString& str)
+{
+	return *this + str;
+}
+
+MyString& MyString::append(const MyString& str, size_t subpos, size_t sublen)
+{
+	CharNode* item = str.getCharNodeHead();
+	for (size_t i = 0; i < subpos; i++)
+	{
+		item = item->getNext();
+	}
+
+	for (size_t i = 0; i < sublen; i++)
+	{
+		this->addCharNode(new CharNode(item->getContent()));
+		item = item->getNext();
+	}
+	return *this;
+}
+
+MyString& MyString::append(const char* s)
+{
+	return *this + s;
+}
+
+MyString& MyString::append(const char* s, size_t n)
+{
+	for (size_t i = 0; i < n; i++)
+	{
+		this->addCharNode(new CharNode(s[i]));
+	}
+	return *this;
+}
+
+MyString& MyString::append(size_t n, char c)
+{
+	for (size_t i = 0; i < n; i++)
+	{
+		this->addCharNode(new CharNode(c));
+	}
+	return *this;
+}

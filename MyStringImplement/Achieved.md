@@ -31,10 +31,6 @@ to_string  Convert numerical value to string
 
 Modifiers:
 
-operator+=
-
-Append to string (public member function )
-
 append
 
 Append to string (public member function )
