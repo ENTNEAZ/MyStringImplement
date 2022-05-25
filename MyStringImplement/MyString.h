@@ -66,7 +66,7 @@ public:
 	MyString& replace(size_t pos, size_t len, const char* s);
 	MyString& replace(size_t pos, size_t len, const char* s, size_t n);
 	MyString& replace(size_t pos, size_t len, size_t n, char c);
-
+	void swap(MyString& str);
 
 	//operators of string object
 	void operator=(const char* s);

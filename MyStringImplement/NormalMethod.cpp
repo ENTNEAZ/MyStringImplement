@@ -493,3 +493,10 @@ MyString& MyString::replace(size_t pos, size_t len, size_t n, char c)
 	this->insert(pos, n, c);
 	return *this;
 }
+
+void MyString::swap(MyString& str)
+{
+	MyString temp(*this);
+	this->copyFrom(str);
+	str.copyFrom(temp);
+}
