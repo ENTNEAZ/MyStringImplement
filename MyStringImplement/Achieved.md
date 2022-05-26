@@ -35,14 +35,6 @@ to_string  Convert numerical value to string
 String operations:
 
 
-find_first_not_of
-
-Find absence of character in string (public member function )
-
-find_last_not_of
-
-Find non-matching character in string from the end (public member function )
-
 substr
 
 Generate substring (public member function )
