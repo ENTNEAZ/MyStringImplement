@@ -85,7 +85,10 @@ public:
 	size_t find_first_of(const char* s, size_t pos = 0) const;
 	size_t find_first_of(const char* s, size_t pos, size_t n) const;
 	size_t find_first_of(char c, size_t pos = 0) const;
-
+	size_t find_last_of(const MyString& str, size_t pos) const;
+	size_t find_last_of(const char* s, size_t pos) const;
+	size_t find_last_of(const char* s, size_t pos, size_t n) const;
+	size_t find_last_of(char c, size_t pos) const;
 
 	//operators of string object
 	void operator=(const char* s);

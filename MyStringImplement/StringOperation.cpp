@@ -59,9 +59,11 @@ size_t MyString::rfind(const MyString& str, size_t pos) const
 size_t MyString::rfind(const char* s, size_t pos) const
 {
 	const char* cstr = this->c_str();
-	size_t lengthCstr = this->length();
+	if (pos > this->length() - 1) {
+		pos = this->length() - 1;
+	}
 	size_t lengthS = OString::strlen(s);
-	for (size_t i = lengthCstr; i > 0; i--)
+	for (size_t i = pos + 1; i > 0; i--)
 	{
 		if (*s == cstr[i - 1]) {
 			//匹配到一个相同的字符
@@ -131,5 +133,44 @@ size_t MyString::find_first_of(char c, size_t pos) const
 {
 	MyString temp(c, 1);
 	return this->find_first_of(temp, pos);
+}
+
+size_t MyString::find_last_of(const MyString& str, size_t pos) const
+{
+	const char* strChar = str.c_str();
+	size_t temp = this->find_last_of(strChar, pos);
+	delete[] strChar;
+	return temp;
+}
+
+size_t MyString::find_last_of(const char* s, size_t pos) const
+{
+	size_t lengthOfS = OString::strlen(s);
+	if (pos > this->length() - 1) {
+		pos = this->length() - 1;
+	}
+	for (size_t i = pos + 1; i > 0; i--)
+	{
+		for (size_t j = 0; j < lengthOfS; j++)
+		{
+			if ((*this)[i - 1] == s[j]) {
+				return i - 1;
+			}
+		}
+	}
+
+	return -1;
+}
+
+size_t MyString::find_last_of(const char* s, size_t pos, size_t n) const
+{
+	MyString temp(s, n);
+	return this->find_last_of(temp, pos);
+}
+
+size_t MyString::find_last_of(char c, size_t pos) const
+{
+	MyString temp(c, 1);
+	return this->find_last_of(temp, pos);
 }
 

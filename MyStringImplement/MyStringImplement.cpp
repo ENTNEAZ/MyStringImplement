@@ -152,8 +152,11 @@ int main()
         str[found] = '*';
         found = str.find_first_of("aeiou", found + 1);
     }
-    cout << str << '\n';
+    cout << str << endl;
 
+
+    str = "0123456789*1234abc89*";
+    cout << str.find_last_of("abcdef", str.length()) << endl;
     return 0;
 }
 

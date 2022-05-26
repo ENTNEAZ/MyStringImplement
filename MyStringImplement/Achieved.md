@@ -35,18 +35,6 @@ to_string  Convert numerical value to string
 String operations:
 
 
-rfind
-
-Find last occurrence of content in string (public member function )
-
-find_first_of
-
-Find character in string (public member function )
-
-find_last_of
-
-Find character in string from the end (public member function )
-
 find_first_not_of
 
 Find absence of character in string (public member function )
