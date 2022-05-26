@@ -143,7 +143,16 @@ int main()
 
     a = "aabbccddeeffgg";
     cout << a.find(*new MyString("gg"), 5) << endl;
+    cout << a.rfind("0", a.length()) << endl;
 
+    MyString str("Please, replace the vowels in this sentence by asterisks.");
+    size_t found = str.find_first_of("aeiou");
+    while (found != -1)
+    {
+        str[found] = '*';
+        found = str.find_first_of("aeiou", found + 1);
+    }
+    cout << str << '\n';
 
     return 0;
 }

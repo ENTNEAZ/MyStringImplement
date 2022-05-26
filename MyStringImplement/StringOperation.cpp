@@ -48,3 +48,88 @@ size_t MyString::find(char c, size_t pos) const
 	return this->find(temp, pos);
 }
 
+size_t MyString::rfind(const MyString& str, size_t pos) const
+{
+	const char* tempStr = str.c_str();
+	size_t temp = this->rfind(tempStr, pos);
+	delete[] tempStr;
+	return temp;
+}
+
+size_t MyString::rfind(const char* s, size_t pos) const
+{
+	const char* cstr = this->c_str();
+	size_t lengthCstr = this->length();
+	size_t lengthS = OString::strlen(s);
+	for (size_t i = lengthCstr; i > 0; i--)
+	{
+		if (*s == cstr[i - 1]) {
+			//匹配到一个相同的字符
+			bool isSuccess = true;
+			for (size_t j = 0; j < lengthS; j++)
+			{
+				if (cstr[i + j - 1] == '\0' || cstr[i + j - 1] != s[j]) {
+					isSuccess = false;
+					break;
+				}
+			}
+
+			if (isSuccess) {
+				return i - 1;
+			}
+		}
+	}
+
+	//整个过程都没找到
+	return -1;
+}
+
+size_t MyString::rfind(const char* s, size_t pos, size_t n) const
+{
+	MyString temp(s, n);
+	return this->rfind(temp, pos);
+}
+
+size_t MyString::rfind(char c, size_t pos) const
+{
+	MyString temp(c, 1);
+	return this->rfind(temp, pos);
+}
+
+size_t MyString::find_first_of(const MyString& str, size_t pos) const
+{
+	const char* strChar = str.c_str();
+	size_t temp = this->find_first_of(strChar, pos);
+	delete[] strChar;
+	return temp;
+}
+
+size_t MyString::find_first_of(const char* s, size_t pos) const
+{
+	size_t lengthOfThis = this->length();
+	size_t lengthOfS = OString::strlen(s);
+	for (size_t i = pos; i < lengthOfThis; i++)
+	{
+		for (size_t j = 0; j < lengthOfS; j++)
+		{
+			if ((*this)[i] == s[j]) {
+				return i;
+			}
+		}
+	}
+
+	return -1;
+}
+
+size_t MyString::find_first_of(const char* s, size_t pos, size_t n) const
+{
+	MyString temp(s, n);
+	return this->find_first_of(temp, pos);
+}
+
+size_t MyString::find_first_of(char c, size_t pos) const
+{
+	MyString temp(c, 1);
+	return this->find_first_of(temp, pos);
+}
+
