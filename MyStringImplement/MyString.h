@@ -30,8 +30,8 @@ public:
 
 
 	//Method of string object
-	size_t size();
-	size_t length();
+	size_t size() const;
+	size_t length() const;
 	size_t max_size();//Œﬁ“‚“Â
 	void resize(size_t n);
 	void resize(size_t n, char c);
@@ -67,9 +67,20 @@ public:
 	MyString& replace(size_t pos, size_t len, const char* s, size_t n);
 	MyString& replace(size_t pos, size_t len, size_t n, char c);
 	void swap(MyString& str);
+	void pop_back();
+
+
+	//String operation
+	const char* c_str() const;
+	const char* data() const;
+	size_t find(const MyString& str, size_t pos = 0) const;
+	size_t find(const char* s, size_t pos = 0) const;
+	size_t find(const char* s, size_t pos, size_t n) const;
+	size_t find(char c, size_t pos = 0) const;
 
 	//operators of string object
 	void operator=(const char* s);
+	void operator=(char s);
 	void operator=(const MyString s);
 	const char& operator[](size_t pos) const;
 	char& operator[] (size_t pos);

@@ -1,4 +1,5 @@
-1、http://www.cplusplus.com/reference/cstring/   中右边后涉及的所有功能。（共24个）
+1、设计mystring类，要求实现以下功能：
+http://www.cplusplus.com/reference/cstring/   中右边后涉及的所有功能。（共24个）
 
 
 
@@ -29,31 +30,10 @@ to_string  Convert numerical value to string
 4、实现以下功能。（共40个）功能描述与使用见：http://www.cplusplus.com/reference/string/string/
 
 
-Modifiers:
-
-
-
-pop_back 
-
-Delete last character (public member function )
-
 
 
 String operations:
 
-
-
-data
-
-Get string data (public member function )
-
-copy
-
-Copy sequence of characters from string (public member function )
-
-find
-
-Find content in string (public member function )
 
 rfind
 

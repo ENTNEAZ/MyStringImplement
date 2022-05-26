@@ -13,6 +13,12 @@ void MyString::operator=(const char* s)
 	}
 }
 
+void MyString::operator=(char s)
+{
+	this->deleteAllCharNode();
+	this->addCharNode(new CharNode(s));
+}
+
 void MyString::operator=(const MyString s)
 {
 	this->copyFrom(s);

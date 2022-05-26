@@ -135,7 +135,7 @@ void MyString::insertCharList(size_t insertBeforePos, CharNode* insertHead)
 
 
 
-size_t MyString::size()
+size_t MyString::size() const
 {
 	CharNode* item = this->head;
 	size_t num = 0;
@@ -146,7 +146,7 @@ size_t MyString::size()
 	return num;
 }
 
-size_t MyString::length()
+size_t MyString::length() const
 {
 	return this->size();
 }
@@ -499,4 +499,24 @@ void MyString::swap(MyString& str)
 	MyString temp(*this);
 	this->copyFrom(str);
 	str.copyFrom(temp);
+}
+
+void MyString::pop_back()
+{
+	CharNode* item = this->head;
+	if (this->head == nullptr) {
+		return;
+	}
+	while (item->getNext() != nullptr) {
+		item = item->getNext();
+	}
+	if (item == this->head) {
+		this->head = nullptr;
+		delete item;
+	}
+	else {
+		item->getBefore()->setNext(nullptr);
+		delete item;
+	}
+
 }

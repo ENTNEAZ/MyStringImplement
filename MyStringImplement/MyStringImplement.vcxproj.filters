@@ -33,6 +33,9 @@
     <ClCompile Include="OriginalCString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="StringOperation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">

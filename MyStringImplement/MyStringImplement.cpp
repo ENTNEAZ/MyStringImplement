@@ -138,6 +138,11 @@ int main()
     cout << a << endl;
     a.replace(22, 1, 3, '!');
     cout << a << endl;
+    a.pop_back();
+    cout << a << endl;
+
+    a = "aabbccddeeffgg";
+    cout << a.find(*new MyString("gg"), 5) << endl;
 
 
     return 0;
