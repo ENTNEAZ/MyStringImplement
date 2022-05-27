@@ -36,6 +36,9 @@
     <ClCompile Include="StringOperation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MyStringUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
@@ -45,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="OriginalCString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyStringUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

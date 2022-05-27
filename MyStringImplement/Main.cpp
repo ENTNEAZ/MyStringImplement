@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "MyString.h"
-#include <string>
+#include "MyStringUtils.h"
 using namespace std;
 int main()
 {
@@ -93,81 +93,83 @@ int main()
     //MyString::memset(str1, '-', 6);
     //cout << str1 << endl;
 
-    MyString a = "aaaaaaaaa";
-    cout << a << endl;
-    cout << a[4] << endl;
+    //MyString a = "aaaaaaaaa";
+    //cout << a << endl;
+    //cout << a[4] << endl;
 
-    MyString b = "bbbbbbbbb";
-    cout << b << endl;
+    //MyString b = "bbbbbbbbb";
+    //cout << b << endl;
 
-    cout << a + b << endl;
+    //cout << a + b << endl;
+    //
+    //MyString c = a + b;
+    //cout << c << endl;
+    //c = c + c;
+    //c += c;
+    //cout << c << endl;
+
+    //a = "aaa";
+    //b = "bbb";
+    //c = "";
+    //c.insert(0, a + b);
+    //cout << a << '\t' << b << endl;
+    //cout << c << endl;
+
+    //MyString d(c, 2, 4);
+    //cout << d.insert(1,a,0,3) << endl;
+
+
+    //d = "01234567";
+    //d.erase(2, 3);
+    //cout << d << endl;
+
+    //a = "this is a test string.";
+    //b = "n example";
+    //c = "sample phrase";
+    //d = "useful.";
+
+    //a.replace(9, 5, b);
+    //cout << a << endl;
+    //a.replace(19, 6, c, 7, 6);
+    //cout << a << endl;
+    //a.replace(8, 10, "just a");
+    //cout << a << endl;
+    //a.replace(8, 6, "a shorty", 7);
+    //cout << a << endl;
+    //a.replace(22, 1, 3, '!');
+    //cout << a << endl;
+    //a.pop_back();
+    //cout << a << endl;
+
+    //a = "aabbccddeeffgg";
+    //cout << a.find(*new MyString("gg"), 5) << endl;
+    //cout << a.rfind("0", a.length()) << endl;
+
+    //MyString str("Please, replace the vowels in this sentence by asterisks.");
+    //size_t found = str.find_first_of("aeiou");
+    //while (found != -1)
+    //{
+    //    str[found] = '*';
+    //    found = str.find_first_of("aeiou", found + 1);
+    //}
+    //cout << str << endl;
+
+
+    //str = "0123456789*1234abc89*";
+    //cout << str.find_last_of("abcdef", str.length()) << endl;
+
+    //cout << str.substr(8, 13) << endl;
+    //cout << str.compare("0123456789*1234abc89*") << endl;
+    //cout << (str == "0123456789*1234abc89*") << endl;
+    //cout << (MyString("alpha") < MyString("beta")) << endl;
+    //
+    //cin >> str;
+    //cout << "your input:" << str << endl;
+    //MyString::getline(cin, str, 'a');
+    //cout << "your input:" << str << endl;
     
-    MyString c = a + b;
-    cout << c << endl;
-    c = c + c;
-    c += c;
-    cout << c << endl;
-
-    a = "aaa";
-    b = "bbb";
-    c = "";
-    c.insert(0, a + b);
-    cout << a << '\t' << b << endl;
-    cout << c << endl;
-
-    MyString d(c, 2, 4);
-    cout << d.insert(1,a,0,3) << endl;
-
-
-    d = "01234567";
-    d.erase(2, 3);
-    cout << d << endl;
-
-    a = "this is a test string.";
-    b = "n example";
-    c = "sample phrase";
-    d = "useful.";
-
-    a.replace(9, 5, b);
-    cout << a << endl;
-    a.replace(19, 6, c, 7, 6);
-    cout << a << endl;
-    a.replace(8, 10, "just a");
-    cout << a << endl;
-    a.replace(8, 6, "a shorty", 7);
-    cout << a << endl;
-    a.replace(22, 1, 3, '!');
-    cout << a << endl;
-    a.pop_back();
-    cout << a << endl;
-
-    a = "aabbccddeeffgg";
-    cout << a.find(*new MyString("gg"), 5) << endl;
-    cout << a.rfind("0", a.length()) << endl;
-
-    MyString str("Please, replace the vowels in this sentence by asterisks.");
-    size_t found = str.find_first_of("aeiou");
-    while (found != -1)
-    {
-        str[found] = '*';
-        found = str.find_first_of("aeiou", found + 1);
-    }
-    cout << str << endl;
-
-
-    str = "0123456789*1234abc89*";
-    cout << str.find_last_of("abcdef", str.length()) << endl;
-
-    cout << str.substr(8, 13) << endl;
-    cout << str.compare("0123456789*1234abc89*") << endl;
-    cout << (str == "0123456789*1234abc89*") << endl;
-    cout << (MyString("alpha") < MyString("beta")) << endl;
-    
-    cin >> str;
-    cout << "your input:" << str << endl;
-    MyString::getline(cin, str, 'a');
-    cout << "your input:" << str << endl;
-    
+    cout << MyStringUtils::strToInteger("ffff", 16, true) << endl;
+    cout << MyStringUtils::stoi("xzv-0xffff", nullptr, 16) << endl;
     return 0;
 }
 

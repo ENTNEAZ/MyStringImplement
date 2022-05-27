@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="CharNode.cpp" />
     <ClCompile Include="Constructors.cpp" />
+    <ClCompile Include="MyStringUtils.cpp" />
     <ClCompile Include="NormalMethod.cpp" />
     <ClCompile Include="Operators.cpp" />
     <ClCompile Include="OriginalCString.cpp" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="CharNode.h" />
     <ClInclude Include="MyString.h" />
+    <ClInclude Include="MyStringUtils.h" />
     <ClInclude Include="OriginalCString.h" />
   </ItemGroup>
   <ItemGroup>
