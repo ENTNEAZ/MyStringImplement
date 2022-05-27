@@ -15,5 +15,7 @@ namespace MyStringUtils {
 	//自定义辅助函数
 	int toNum(char a);
 	long long strToInteger(const MyString& str, int base = 10, bool isPositive = true);
+	unsigned long long strToUnsignedInteger(const MyString& str, int base = 10);
+	long double strToDouble(const MyString& str, bool isPositive = true);
 	bool checkLegal(char a, int base);
 }
