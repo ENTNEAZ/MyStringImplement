@@ -98,7 +98,12 @@ public:
 	size_t find_last_not_of(const char* s, size_t pos, size_t n) const;
 	size_t find_last_not_of(char c, size_t pos) const;
 	MyString substr(size_t pos = 0, size_t len = npos) const;
-	
+	int compare(const MyString& str) const noexcept;
+	int compare(size_t pos, size_t len, const MyString& str) const;
+	int compare(size_t pos, size_t len, const MyString& str, size_t subpos, size_t sublen) const;
+	int compare(const char* s) const;
+	int compare(size_t pos, size_t len, const char* s) const;
+	int compare(size_t pos, size_t len, const char* s, size_t n) const;
 
 
 	//operators of string object

@@ -31,8 +31,9 @@ size_t MyString::find(const char* s, size_t pos) const
 	if (retPointer == nullptr) {
 		return -1;
 	}
-	return retPointer - thisChar;
-	//TODO: 可能有内存溢出风险
+	size_t ret = retPointer - thisChar;
+	delete[] thisChar;
+	return ret;
 }
 
 size_t MyString::find(const char* s, size_t pos, size_t n) const
@@ -259,5 +260,47 @@ MyString MyString::substr(size_t pos, size_t len) const
 	MyString temp(&thisStr[pos], len);
 	delete[] thisStr;
 	return temp;
+}
+
+int MyString::compare(const MyString& str) const noexcept
+{
+	const char* strCstr = str.c_str();
+	int ret = this->compare(strCstr);
+	delete[] strCstr;
+	return ret;
+}
+
+int MyString::compare(size_t pos, size_t len, const MyString& str) const
+{
+	MyString tempStr = this->substr(pos, len);
+	return tempStr.compare(str);
+}
+
+int MyString::compare(size_t pos, size_t len, const MyString& str, size_t subpos, size_t sublen) const
+{
+	MyString tempStr = this->substr(pos, len);
+	MyString comparingStr = str.substr(subpos, sublen);
+	return tempStr.compare(comparingStr);
+}
+
+int MyString::compare(const char* s) const
+{
+	const char* thisStr = this->c_str();
+	int ret = OString::strcmp(thisStr, s);
+	delete[] thisStr;
+	return ret;
+}
+
+int MyString::compare(size_t pos, size_t len, const char* s) const
+{
+	MyString tempStr = this->substr(pos, len);
+	return tempStr.compare(s);
+}
+
+int MyString::compare(size_t pos, size_t len, const char* s, size_t n) const
+{
+	MyString tempStr = this->substr(pos, len);
+	MyString comparingStr(s, n);
+	return tempStr.compare(comparingStr);
 }
 

@@ -35,9 +35,6 @@ to_string  Convert numerical value to string
 String operations:
 
 
-substr
-
-Generate substring (public member function )
 
 compare
 
