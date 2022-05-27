@@ -113,13 +113,32 @@ public:
 	const char& operator[](size_t pos) const;
 	char& operator[] (size_t pos);
 	friend std::ostream& operator<<(std::ostream&, MyString);
-	MyString operator+ (const MyString& str);
-	MyString operator+ (const char* s);
-	MyString operator+ (char c);
+	friend MyString operator+ (const MyString& lhs, const MyString& rhs);
+	friend MyString operator+ (const MyString& lhs, const char* rhs);
+	friend MyString operator+ (const char* lhs, const MyString& rhs);
+	friend MyString operator+ (const MyString& lhs, const char rhs);
+	friend MyString operator+ (const char lhs, const MyString& rhs);
 	MyString& operator+= (const MyString& str);
 	MyString& operator+= (const char* s);
 	MyString& operator+= (char c);
-
+	friend bool operator== (const MyString& lhs, const MyString& rhs);
+	friend bool operator== (const char* lhs, const MyString& rhs);
+	friend bool operator== (const MyString& lhs, const char* rhs);
+	friend bool operator!= (const MyString& lhs, const MyString& rhs);
+	friend bool operator!= (const char* lhs, const MyString& rhs);
+	friend bool operator!= (const MyString& lhs, const char* rhs);
+	friend bool operator<  (const MyString& lhs, const MyString& rhs);
+	friend bool operator<  (const char* lhs, const MyString& rhs);
+	friend bool operator<  (const MyString& lhs, const char* rhs);
+	friend bool operator<= (const MyString& lhs, const MyString& rhs);
+	friend bool operator<= (const char* lhs, const MyString& rhs);
+	friend bool operator<= (const MyString& lhs, const char* rhs);
+	friend bool operator>  (const MyString& lhs, const MyString& rhs);
+	friend bool operator>  (const char* lhs, const MyString& rhs);
+	friend bool operator>  (const MyString& lhs, const char* rhs);
+	friend bool operator>= (const MyString& lhs, const MyString& rhs);
+	friend bool operator>= (const char* lhs, const MyString& rhs);
+	friend bool operator>= (const MyString& lhs, const char* rhs);
 
 private:
 	static CharNode* myStringToCharList(const MyString& transfer);

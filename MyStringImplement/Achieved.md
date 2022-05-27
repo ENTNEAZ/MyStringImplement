@@ -34,35 +34,9 @@ to_string  Convert numerical value to string
 
 String operations:
 
-
-
-compare
-
-Compare strings (public member function )
-
-
-
-Non-member function overloads
-
-operator+
-
-Concatenate strings (function )
-
-relational operators
-
-Relational operators for string (function )
-
-swap
-
-Exchanges the values of two strings (function )
-
 operator>>
 
 Extract string from stream (function )
-
-operator<<
-
-Insert string into stream (function )
 
 getline
 

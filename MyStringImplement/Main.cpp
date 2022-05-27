@@ -160,6 +160,8 @@ int main()
 
     cout << str.substr(8, 13) << endl;
     cout << str.compare("0123456789*1234abc89*") << endl;
+    cout << (str == "0123456789*1234abc89*") << endl;
+    cout << (MyString("alpha") < MyString("beta")) << endl;
     return 0;
 }
 
