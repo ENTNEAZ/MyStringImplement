@@ -1,6 +1,9 @@
 #pragma once
 #include "MyString.h"
-
+/*
+implement in:
+MyStringUtils.cpp
+*/
 namespace MyStringUtils {
 	int stoi(const MyString& str, size_t* idx = 0, int base = 10);
 	long stol(const MyString& str, size_t* idx = 0, int base = 10);

@@ -1,5 +1,11 @@
 #pragma once
-
+/*
+implement in:
+Constructors.cpp
+NormalMethod.cpp
+Operators.cpp
+StringOperation.cpp
+*/
 
 #include "CharNode.h"
 #include <iostream>

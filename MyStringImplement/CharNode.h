@@ -1,5 +1,8 @@
 #pragma once
-
+/*
+implement in:
+CharNode.cpp
+*/
 
 class CharNode {
 public:

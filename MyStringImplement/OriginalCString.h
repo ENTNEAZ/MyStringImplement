@@ -1,5 +1,8 @@
 #pragma once
-
+/*
+implement in:
+OriginalCString.cpp
+*/
 namespace OString {
 	//start of cstring.h method
 	void* memcpy(void* destination, const void* source, size_t num);
