@@ -250,3 +250,14 @@ size_t MyString::find_last_not_of(char c, size_t pos) const
 	return this->find_last_not_of(temp, pos);
 }
 
+MyString MyString::substr(size_t pos, size_t len) const
+{
+	const char* thisStr = this->c_str();
+	if (pos + len > this->length()) {
+		len = this->length() - pos;
+	}
+	MyString temp(&thisStr[pos], len);
+	delete[] thisStr;
+	return temp;
+}
+

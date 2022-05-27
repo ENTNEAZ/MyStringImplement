@@ -157,6 +157,8 @@ int main()
 
     str = "0123456789*1234abc89*";
     cout << str.find_last_of("abcdef", str.length()) << endl;
+
+    cout << str.substr(8, 13) << endl;
     return 0;
 }
 

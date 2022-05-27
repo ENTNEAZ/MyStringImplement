@@ -6,7 +6,7 @@
 
 class MyString {
 public:
-	
+	static const size_t npos = -1;
 	//Construct string object
 	//default
 	MyString();
@@ -97,8 +97,8 @@ public:
 	size_t find_last_not_of(const char* s, size_t pos) const;
 	size_t find_last_not_of(const char* s, size_t pos, size_t n) const;
 	size_t find_last_not_of(char c, size_t pos) const;
-
-
+	MyString substr(size_t pos = 0, size_t len = npos) const;
+	
 
 
 	//operators of string object
