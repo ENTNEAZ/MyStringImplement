@@ -35,7 +35,6 @@ char& MyString::operator[](size_t pos)
 	return this->at(pos);
 }
 
-
 MyString& MyString::operator+=(const MyString& str)
 {
 	*this = *this + str;
@@ -54,8 +53,31 @@ MyString& MyString::operator+=(char c)
 	return *this;
 }
 
+std::istream& MyString::getline(std::istream& is, MyString& str, char delim)
+{
+	str.deleteAllCharNode();
+	char charA = '\0';
+	while (true) {
+		is.get(charA);
+		if (charA == delim) {
+			is.putback(charA);
+			break;
+		}
+		else {
+			str.addCharNode(new CharNode(charA));
+		}
+	}
 
-std::ostream& operator<<(std::ostream& out, MyString str)
+	return is;
+}
+
+std::istream& MyString::getline(std::istream& is, MyString& str)
+{
+	return MyString::getline(is, str, '\n');
+}
+
+
+std::ostream& operator<<(std::ostream& out, const MyString& str)
 {
 	CharNode* item = str.getCharNodeHead();
 	while (item != nullptr) {
@@ -63,6 +85,25 @@ std::ostream& operator<<(std::ostream& out, MyString str)
 		item = item->getNext();
 	}
 	return out;
+}
+
+std::istream& operator>>(std::istream& i, MyString& str)
+{
+	str.deleteAllCharNode();
+	char charA = '\0';
+	while (true) {
+		i.get(charA);
+		if (charA == '\n') {
+			i.putback(charA);
+			break;
+		}
+		else {
+			str.addCharNode(new CharNode(charA));
+		}
+	}
+
+	return i;
+
 }
 
 MyString operator+(const MyString& lhs, const MyString& rhs)

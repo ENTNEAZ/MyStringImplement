@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "MyString.h"
-
+#include <string>
 using namespace std;
 int main()
 {
@@ -162,6 +162,12 @@ int main()
     cout << str.compare("0123456789*1234abc89*") << endl;
     cout << (str == "0123456789*1234abc89*") << endl;
     cout << (MyString("alpha") < MyString("beta")) << endl;
+    
+    cin >> str;
+    cout << "your input:" << str << endl;
+    MyString::getline(cin, str, 'a');
+    cout << "your input:" << str << endl;
+    
     return 0;
 }
 
