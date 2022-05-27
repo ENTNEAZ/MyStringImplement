@@ -168,13 +168,15 @@ int main()
 	//MyString::getline(cin, str, 'a');
 	//cout << "your input:" << str << endl;
 
-
 	size_t i = 0;
 	cout << MyStringUtils::strToInteger("ffff", 16, true) << endl;
 	cout << MyStringUtils::stoi("xzv-0xffff", nullptr, 16) << endl;
 	cout << setprecision(30) << MyStringUtils::strToDouble("123456.123", true) << endl;
 	cout << setprecision(30) << MyStringUtils::stold("1232456abdf", &i) << endl;
 	cout << i << endl;
+	cout << MyStringUtils::to_string(1145141919810ULL) << endl;
+	cout << MyStringUtils::to_string(-1145141919810) << endl;
+	cout << setprecision(30) << MyStringUtils::to_string(-1145141919810.1L) << endl;
 	return 0;
 }
 

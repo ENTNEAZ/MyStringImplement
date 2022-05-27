@@ -12,6 +12,10 @@ namespace MyStringUtils {
 	double stod(const MyString& str, size_t* idx = 0);
 	long double stold(const MyString& str, size_t* idx = 0);
 
+	MyString to_string(unsigned long long val);
+	MyString to_string(long long val);
+	MyString to_string(long double val);
+
 	//自定义辅助函数
 	int toNum(char a);
 	long long strToInteger(const MyString& str, int base = 10, bool isPositive = true);

@@ -247,3 +247,56 @@ long double MyStringUtils::stold(const MyString& str, size_t* idx)
     MyString temp(str, firstNumAppear, firstNumDisappear - firstNumAppear);
     return MyStringUtils::strToDouble(temp, isPositive);
 }
+
+MyString MyStringUtils::to_string(unsigned long long val)
+{
+    MyString ret;
+    if (val == 0) {
+        ret = "0";
+        return ret;
+    }
+    while (val != 0) {
+        int num = val % 10;
+        val = val / 10;
+        ret = ('0' + num) + ret;
+    }
+    
+    return ret;
+}
+
+MyString MyStringUtils::to_string(long long val)
+{
+    bool isPositive = (val >= 0) ? true : false;
+    val *= (val >= 0) ? 1 : -1;
+    MyString ret;
+    while (val != 0) {
+        int num = val % 10;
+        val = val / 10;
+        ret = ('0' + num) + ret;
+    }
+    if (!isPositive) {
+        ret = '-' + ret;
+    }
+    return ret;
+}
+
+MyString MyStringUtils::to_string(long double val)
+{
+    MyString ret;
+    bool isPositive = (val >= 0) ? true : false;
+    val *= (val >= 0) ? 1 : -1;
+    unsigned long long integerPart = val;
+    ret = MyStringUtils::to_string(integerPart);
+
+    ret += '.';
+
+    //由于double存储的小数不会很准 这里取前10位
+    unsigned long long decimalPart = (val - integerPart) * pow(10, 10);
+    ret += MyStringUtils::to_string(decimalPart);
+
+    if (!isPositive) {
+        ret = '-' + ret;
+    }
+    return ret;
+
+}
