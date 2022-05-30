@@ -176,6 +176,18 @@ void MyString::resize(size_t n, char c)
 	}
 }
 
+size_t MyString::capacity() const
+{
+	return sizeof(*this) + sizeof(CharNode) * this->length();
+}
+
+void MyString::reserve(size_t n)
+{
+	//由于实现方法是动态链表，因此增加长度是没有意义的
+	//同时，标准规定了如果小于当前长度，库的实现方法是自由的（没有强制力）
+	return;
+}
+
 void MyString::clear()
 {
 	this->deleteAllCharNode();

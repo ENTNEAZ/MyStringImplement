@@ -41,6 +41,8 @@ public:
 	size_t max_size();//无意义
 	void resize(size_t n);
 	void resize(size_t n, char c);
+	size_t capacity() const;
+	void reserve(size_t n = 0);//无意义
 	void clear();
 	bool empty();
 	void shrink_to_fit();//无意义
