@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "MyString.h"
 
 //http://www.cplusplus.com/reference/string/string/
@@ -153,9 +154,12 @@ size_t MyString::length() const
 
 size_t MyString::max_size()
 {
-	//由于使用了链表 因此最大上线应当是内存中可分配的大小
-	//此方法对这个类无意义
-	return 0;
+	MEMORYSTATUSEX l_oStatex;
+	l_oStatex.dwLength = sizeof(l_oStatex);
+	GlobalMemoryStatusEx(&l_oStatex);
+	unsigned long long l_llAvailPhys = l_oStatex.ullAvailPhys;
+	//l_llAvailPhy为可用的内存字节
+	return l_llAvailPhys  / sizeof(CharNode);
 }
 
 void MyString::resize(size_t n)

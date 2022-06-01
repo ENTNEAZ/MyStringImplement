@@ -38,7 +38,7 @@ public:
 	//Method of string object
 	size_t size() const;
 	size_t length() const;
-	size_t max_size();//Œﬁ“‚“Â
+	size_t max_size();
 	void resize(size_t n);
 	void resize(size_t n, char c);
 	size_t capacity() const;
