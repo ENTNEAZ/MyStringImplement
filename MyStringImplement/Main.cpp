@@ -140,6 +140,8 @@ int main()
 	c = "sample phrase";
 	d = "useful.";
 
+	cout << a.max_size() << endl;//某次输出结果：121418069(非固定)
+
 	a.replace(9, 5, b);
 	cout << a << endl;
 	a.replace(19, 6, c, 7, 6);
@@ -202,7 +204,7 @@ int main()
 	cout << MyStringUtils::to_string(-1145141919810) << endl;//-1145141919810
 	cout << setprecision(30) << MyStringUtils::to_string(-1145141919810.1L) << endl;//-1145141919810.1000976562
 	
-	cout << str.max_size() << endl;//某次输出结果：121418069(非固定)
+	
 	return 0;
 }
 
