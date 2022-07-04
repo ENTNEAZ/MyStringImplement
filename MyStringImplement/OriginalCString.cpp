@@ -195,7 +195,15 @@ const char* OString::strrchr(const char* str, int character)
 }
 
 char* OString::strrchr(char* str, int character) {
-	return const_cast<char*>(OString::strchr(const_cast<const char*>(str), character));
+	char* ptrChar = (char*)str;
+	char* ret = nullptr;
+	while (*((char*)ptrChar) != '\0') {
+		if (*((char*)ptrChar) == character) {
+			ret = ptrChar;
+		}
+		ptrChar++;
+	}
+	return ret;
 }
 
 size_t OString::strspn(const char* str1, const char* str2)

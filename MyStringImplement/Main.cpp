@@ -65,7 +65,7 @@ int main()
 
 	//strrchr
 	OString::strcpy(str1, "f3a3sdf");
-	cout << OString::strrchr(str1, '3') << endl;//3a3sdf
+	cout << OString::strrchr(str1, '3') << endl;//3sdf
 
 
 	//strspn
